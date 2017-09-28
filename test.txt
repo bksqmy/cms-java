@@ -1,0 +1,54 @@
+学习一下git的提交
+1：需要完成
+
+
+分析脚本
+1：启动方法分析
+2：
+
+
+
+
+导入功能
+
+
+/contractInfo/contractInfo_admin/list/
+
+
+//合同的终止时间
+		if("1".equals(zhongzhishijian)){
+			Date dt = new Date();
+			contractInfoQM.setServZhongzhishijianOUTSET(ConcurrentDF.formatYMD(dt));
+			Calendar rightNow = Calendar.getInstance();
+			rightNow.setTime(dt);
+			rightNow.add(Calendar.MONTH, 3);// 日期加1个月
+			contractInfoQM.setServZhongzhishijianFINISH(ConcurrentDF.formatYMD(rightNow.getTime()));
+
+		}
+		//快到期合同
+		if("1".equals(nextPayTime)){
+			Date dt = new Date();
+			contractInfoQM.setServNextPayTimeOUTSET(ConcurrentDF.formatYMD(dt));
+			Calendar rightNow = Calendar.getInstance();
+			rightNow.setTime(dt);
+			rightNow.add(Calendar.MONTH, 1);// 日期加1个月
+			contractInfoQM.setServNextPayTimeFINISH(ConcurrentDF.formatYMD(rightNow.getTime()));
+		}
+
+
+		需要改
+		
+		个数的查询
+		
+		if (Permission.checkROLE("admin")) {// 此角色具备admin角色
+			%>
+	action="${pageContext.request.contextPath }/contractInfo/contractInfo_admin/list/"
+	<%
+				} else if (Permission.checkROLE("enterprise")) {// 此角色不具备admin角色 && 具备enterprise角色
+			%>
+	action="${pageContext.request.contextPath }/contractInfo/contractInfo_enterprise/list/"
+	
+	
+	e.printStackTrace();
+	SessionPicker.loginUser().getOwnerOrganize().getId()
+		
